@@ -92,100 +92,166 @@ nav ul{
    
  }
 
-
-
-
-
- .slideimage2{
-width: 100%;
-height: 100vh;
-
-margin-top: -120px;
-
-
-position: relative;
-
-  
-
+ #nope{
+  height: 100vh;
+  top: 100px;
  }
-  .slideimage2 h1{
-    margin-top: -520px;
-    font-size: 50px;
-    position: absolute;
-  color: #29140f;
-  text-shadow: -1px 1px 0 #ccc9c9,
-  1px 1px 0 #ccc9c9,
-  1px -1px 0 #ccc9c9;
+.imgslide{
   
-
- 
- }
- .slideimage2 a p{
-  text-shadow: -0px 0px 0 #C4A484,
-  0px 0px 0 #C4A484,
-  0px 0px 0 #C4A484;
-  margin-left: 25px;
-  margin-top: -300px;
-  padding-right: 52px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  background-color: #C4A484;
-  color: #29140f;
-  font-size: 20px;
-
-
+  height: 100vh;
+  width: 100%;
   position: absolute;
- }
- .slideimage2 a p:hover{
-  color:#C4A484;
-  background-color: #29140f;
- }
- .slideimage2 p{
-  text-shadow: -1px 1px 0 #ccc9c9,
-  1px 1px 0 #ccc9c9,
-  1px -1px 0 #ccc9c9;
-  padding-left: 25px;
-  color: #29140f;
-  font-size: 30px;
+  left: 0;
+  top: 80px;
+  overflow: hidden;
 
-  margin-top: -300px;
+
+}
+@keyframes zoom-out {
+  100%{width: 100%;}
+}
+.imgslide img{
+  
+  width: 120%;
   position: absolute;
- }
- .slideimagewrapper{
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  animation: zoom-out 8s linear infinite;
+}
+.image1{
+  animation: slide1 32s linear infinite;
+}
+.image2{
+  animation: slide2 32s linear infinite;
+}
+.image3{
+  animation: slide3 32s linear infinite;
+}
+.image4{
+  animation: slide4 32s linear infinite;
+}
+@keyframes slide1 {
+  0%{visibility: visible;}
+  25%{visibility:hidden ;}
+  50%{visibility:hidden ;}
+  75%{visibility:hidden ;}
+  100%{visibility:visible ;}
 
-animation: slide 50s infinite;
-width: 100%;
-display: flex;
-position: relative;
+}
+@keyframes slide2 {
+  0%{visibility: hidden;}
+  25%{visibility:hidden ;}
+  50%{visibility:visible ;}
+  75%{visibility:hidden ;}
+  100%{visibility:hidden ;}
 
+}
+@keyframes slide3 {
+  0%{visibility: hidden;}
+  25%{visibility:hidden ;}
+  50%{visibility:hidden ;}
+  75%{visibility:visible ;}
+  100%{visibility:hidden ;}
 
- }
- @keyframes slide {
-  0%{transform: translateX(0);}
-  14%{transform: translateX(0);}
-  28%{transform: translateX(-100%);}
-  42%{transform: translateX(-200%);}
-  56%{transform: translateX(-300%);}
-  70%{transform: translateX(-400%);}
-  84%{transform: translateX(-500%);}
-  92%{transform: translateX(-600%);}
-  99.9%{transform: translateX(-600%);}
-  100%{transform: translateX(0);}
- 
- 
- 
+}
+@keyframes slide4 {
+  0%{visibility: hidden;}
+  25%{visibility:hidden ;}
+  50%{visibility:hidden ;}
+  75%{visibility:hidden ;}
+  100%{visibility:visible ;}
 
- }
- .slideimagewrapper img{
+}
 
-width: 100%;
-height: 780px;
-
+.blackcover{
+  height: 500px;
+  width: 550px;
+  background-color: #fff2d5;
+  background: rgba(255, 242, 213, 0.9);
+  text-align: center;
   
- }
+}
+.blackcover h1{
+  opacity:unset;
+}
+
+.slidetext{
+ 
+   font-family:'Poppins', sans-serif;
+    font-size: 30px;
+    color: #52413c;
+  position: absolute;
+  left: 30px;
+  padding-top: 0;
+ 
+}
+
+  .slidetext h1{
+   padding-top: 85px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .slidetext p{
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    font-size: 25px;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    line-height: 1.8;
+    color: #52413c;
+    margin-bottom: 20px;
+  }
+  .slidetext h2:hover{
+    padding: 20px;
+    background-color: #fff2d5;
+    margin-top: 100px;
+    font-size: 25px;
+    text-decoration: none;
+  }
+.slidetext a h2:hover{
+  text-decoration: none;
+    color: #52413c;
+}
+  .slidetext h2{
+    padding: 20px;
+    background-color: #52413c;
+    margin-top: 100px;
+    font-size: 25px;
+    text-decoration: none;
+  }
+  .slidetext a h2{
+    text-decoration: none;
+    color: #fff2d5;
+  }
+  .slidetext a{
+    text-decoration: none;
+  }
+  .slidetext p span{
+    margin-top: 100px;
+  }
+  .slidetext  p span a{
+    margin-top: 200px;
+    color:#52413c ;
+   
+  }
   
+ .wrapper img{
 
-
+    float: left;
+    margin-top: -30px;
+    margin-right: 50px;
+    margin-left: 40px;
+    width: auto;
+    height: 490px;
+    
+ }
+ .wrapper img :hover{
+  transform: scale(1.05);
+ }
  .textbox{
    font-family:  'Roboto', sans-serif;
     font-weight: 400;
@@ -197,6 +263,7 @@ height: 780px;
     font-size: 35px;
     color: #C4A484;
  }
+
  .textbox p{
   font-size: 17px;
    margin-top: -50px;
@@ -207,16 +274,17 @@ height: 780px;
  .Submit1{
     
     right:2%;
+    margin-top: 90px;
    position: fixed;
-
-   margin-top: -60px;
+    
    
     
  }
  .textbox button{
    
  opacity: 50%;
-   
+    
+    margin-top: 400px;
     border: 2px solid #29140f;
     
     border-radius: 17px;
@@ -239,7 +307,7 @@ height: 780px;
  
     
     color: #fff;
-  
+    margin-top: 10px;
    font-size: 20px;
     text-decoration: none;
     
@@ -258,7 +326,7 @@ display: none;
     color: #ffffff;
  }
  #about{
-  margin-top: 65px;
+  margin-top: -100px;
  }
  .about{
   
@@ -369,6 +437,24 @@ text-align: center;
   padding-bottom: 50px;
    background-color: #ffffff;
  }
+ .princ{
+  margin: 0 auto;
+  display: table;
+ }
+ .princ ul{
+
+
+
+  list-style: none;
+ 
+}
+.princ ul li{
+
+  display: inline-block;
+  margin-right: 50px;
+}
+
+
 
  .prin h1{
   margin: 0;
@@ -390,25 +476,19 @@ text-align: center;
   width:200px;
     object-fit: cover;
  }
- .princ{
  
-  width: 100%;
-
-  text-align: center;
- }
  .princ p{
  
   display: inline-block;
  }
  .dil{
    border-radius: 15px;
-   margin-right: 40px;
-   margin-left: 30px;
+   
    text-align: center;
    box-shadow: -5px 5px 10px #bfc0c0;
-   width: 30%;
+   width: 350px;
    height: 400px;
-float: left;
+
    margin-bottom: 50px;
 
  }
@@ -439,13 +519,12 @@ padding-bottom: 10px;
 
  .int{
    border-radius: 15px;
-   width: 30%;
-   float: left;
+   width: 350px;
+  
    height: 400px;
-   margin: auto;
+  
    text-align: center;
    box-shadow: -5px 5px 10px #bfc0c0;
-   display: inline  ;
   
    margin-bottom: 50px;
  }
@@ -478,15 +557,13 @@ padding-bottom: 10px;
 
 
  .faith{
-   border-radius: 15px;
-   margin: auto;
-   float: right;
-   margin-right: 30px;
+  border-radius: 15px;
+   
    text-align: center;
    box-shadow: -5px 5px 10px #bfc0c0;
-   width: 30%;
+   width: 350px;
    height: 400px;
-   margin-bottom: 50px;
+
  }
  .faith:hover{
    transform: scale(1.05);
@@ -506,7 +583,7 @@ padding-bottom: 10px;
  }
  .faith img{
 
-  padding-top: 30px;
+
    padding-left: 20px;
    object-fit: cover;
    
