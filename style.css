@@ -277,7 +277,7 @@ font-size: 17px;
  color: #52413c;
 }
 .Submit1{
-  
+  display:none;
   right:20px;
 top: -300px;
 bottom: auto;
