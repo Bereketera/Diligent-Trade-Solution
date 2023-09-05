@@ -277,7 +277,7 @@ font-size: 17px;
  color: #52413c;
 }
 .Submit1{
-  display:none;
+  display:none !important;
   right:20px;
 top: -300px;
 bottom: auto;
@@ -1286,7 +1286,7 @@ nav ul{
    color: #52413c;
  }
  .Submit1{
-    
+    display:block;
     right:10px;
     top:auto;
    bottom: 20px;
