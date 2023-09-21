@@ -1,0 +1,508 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+
+    th{ 
+	 background-color:#29140f;
+        color:#fff;
+            }
+	#titl{
+	
+	background-color:#fff;
+	color:black;
+	padding-top:20px;
+	padding-bottom:-40px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:40px;
+	text-align: center;
+	
+	
+	
+	
+	}
+	#t{
+	background-color:fff;
+	padding-bottom:-50px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:17px;
+	text-align: center;
+	color:#29140f;	   
+</style>
+<div id="titl">
+
+<p style="font-size:25px;">19/09/2023 - 25/09/2023</p>
+ </P></div>
+
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th  >S.n </th>
+        <th  >Coffee type </th>
+		<th >Export type </th>
+        <th >Grade </th>
+		<th >Processing type </th>
+		<th data-column="STAN" data-order="desc">Stan.price USD/LB &#9650 &#9660</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+	var myArray = [
+			 	
+ 		 {'name':'1', 'age':'Abysinia mocca ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	4.04'},	
+	 {'name':'2', 'age':'Andrecha ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.73'},	
+	 {'name':'3', 'age':'Arsi ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'4', 'age':'Arsi ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'5', 'age':'Babaka ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.88'},	
+	 {'name':'6', 'age':'Babaka ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.86'},	
+	 {'name':'7', 'age':'Bale ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'8', 'age':'Bale ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.46'},	
+	 {'name':'9', 'age':'Arena ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'10', 'age':'Arena ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.46'},	
+	 {'name':'11', 'age':'Bench Maji ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.18'},	
+	 {'name':'12', 'age':'Bench Maji ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.15'},	
+	 {'name':'13', 'age':'bonga ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.64'},	
+	 {'name':'14', 'age':'Bulga ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.84'},	
+	 {'name':'15', 'age':'Djimma ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.95'},	
+	 {'name':'16', 'age':'Galana Abaya ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.17'},	
+	 {'name':'17', 'age':'Gera ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.8'},	
+	 {'name':'18', 'age':'Gera ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.83'},	
+	 {'name':'19', 'age':'Gesha ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.64'},	
+	 {'name':'20', 'age':'Gesha ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.67'},	
+	 {'name':'21', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'22', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'23', 'age':'Harar ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.5'},	
+	 {'name':'24', 'age':'Kafa ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.88'},	
+	 {'name':'25', 'age':'kafa ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.85'},	
+	 {'name':'26', 'age':'Kambata ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.83'},	
+	 {'name':'27', 'age':'Kochere ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'28', 'age':'Kochere ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'29', 'age':'Limmu ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.74'},	
+	 {'name':'30', 'age':'Limmu ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.77'},	
+	 {'name':'31', 'age':'Masha ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.85'},	
+	 {'name':'32', 'age':'Misty Valley ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.46'},	
+	 {'name':'33', 'age':'Misty Valley ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'34', 'age':'Nekemte ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.44'},	
+	 {'name':'35', 'age':'Nekemte ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.48'},	
+	 {'name':'36', 'age':'sheka ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.87'},	
+	 {'name':'37', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'38', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'39', 'age':'Yirgachefe ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'40', 'age':'Yirgachefe ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'41', 'age':'Zege ', 'birthdate':'Commercial ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.42'},	
+	 {'name':'42', 'age':'Abysinia mocca ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	4.04'},	
+	 {'name':'43', 'age':'Andrecha ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.76'},	
+	 {'name':'44', 'age':'Arsi ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'45', 'age':'Arsi ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'46', 'age':'Babaka ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.88'},	
+	 {'name':'47', 'age':'Babaka ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.86'},	
+	 {'name':'48', 'age':'Bale ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'49', 'age':'Bale ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.46'},	
+	 {'name':'50', 'age':'Arena ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'51', 'age':'Arena ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.46'},	
+	 {'name':'52', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.18'},	
+	 {'name':'53', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.15'},	
+	 {'name':'54', 'age':'bonga ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.64'},	
+	 {'name':'55', 'age':'Bulga ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.84'},	
+	 {'name':'56', 'age':'Djimma ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.95'},	
+	 {'name':'57', 'age':'Galana Abaya ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.17'},	
+	 {'name':'58', 'age':'Gera ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.8'},	
+	 {'name':'59', 'age':'Gera ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.83'},	
+	 {'name':'60', 'age':'Gesha ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.64'},	
+	 {'name':'61', 'age':'Gesha ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.67'},	
+	 {'name':'62', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'63', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'64', 'age':'Harar ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.5'},	
+	 {'name':'65', 'age':'kafa ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.85'},	
+	 {'name':'66', 'age':'kafa ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.85'},	
+	 {'name':'67', 'age':'Kambata ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.83'},	
+	 {'name':'68', 'age':'Kochere ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'69', 'age':'Kochere ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'70', 'age':'Limmu ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.77'},	
+	 {'name':'71', 'age':'Limmu ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.74'},	
+	 {'name':'72', 'age':'Masha ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.85'},	
+	 {'name':'73', 'age':'Misty Valley ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.46'},	
+	 {'name':'74', 'age':'Misty Valley ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'75', 'age':'Nekemte ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.44'},	
+	 {'name':'76', 'age':'Nekemte ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.48'},	
+	 {'name':'77', 'age':'sheka ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.87'},	
+	 {'name':'78', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'79', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'80', 'age':'Yirgachefe ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'81', 'age':'Yirgachefe ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'82', 'age':'Zege ', 'birthdate':'V/Integration ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.42'},	
+	 {'name':'83', 'age':'Bench Maji ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.31'},	
+	 {'name':'84', 'age':'Bench Maji ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.34'},	
+	 {'name':'85', 'age':'Djimma ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.87'},	
+	 {'name':'86', 'age':'Guji ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'87', 'age':'Guji ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'88', 'age':'Limmu ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.79'},	
+	 {'name':'89', 'age':'Limmu ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.76'},	
+	 {'name':'90', 'age':'Nekemte ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.87'},	
+	 {'name':'91', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'92', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'93', 'age':'Yirgachefe ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'94', 'age':'Yirgachefe ', 'birthdate':'Union ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'95', 'age':'Abysinia mocca ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	4.04'},	
+	 {'name':'96', 'age':'Andrecha ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.79'},	
+	 {'name':'97', 'age':'Arsi ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'98', 'age':'Ayehu ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.48'},	
+	 {'name':'99', 'age':'Bale ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	3.43'},	
+	 {'name':'100', 'age':'Bale ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.46'},	
+	 {'name':'101', 'age':'Bench Maji ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.31'},	
+	 {'name':'102', 'age':'Bench Maji ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.34'},	
+	 {'name':'103', 'age':'Bonga ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.99'},	
+	 {'name':'104', 'age':'Djimma ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.87'},	
+	 {'name':'105', 'age':'Nekemte ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.48'},	
+	 {'name':'106', 'age':'Gera ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'washed ', 'STAN':' 	2.84'},	
+	 {'name':'107', 'age':'Gesha ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.67'},	
+	 {'name':'108', 'age':'Guji ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'109', 'age':'Guji ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'110', 'age':'Kafa forest ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.85'},	
+	 {'name':'111', 'age':'Kafa forest ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.88'},	
+	 {'name':'112', 'age':'Kaffa ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.88'},	
+	 {'name':'113', 'age':'Kochere ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'114', 'age':'Kochere ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'115', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.73'},	
+	 {'name':'116', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.76'},	
+	 {'name':'117', 'age':'sheka ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	2.86'},	
+	 {'name':'118', 'age':'sheka ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	2.89'},	
+	 {'name':'119', 'age':'Sidamo ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'120', 'age':'Sidamo ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'121', 'age':'Yirgachefe ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Natural ', 'STAN':' 	3.47'},	
+	 {'name':'122', 'age':'Yirgachefe ', 'birthdate':'Grower ', 'grade':'1 ', 'PROCESSING':'Washed ', 'STAN':' 	3.43'},	
+	 {'name':'123', 'age':'Anaerobic (Preparation) ', 'birthdate':' ', 'grade':' ', 'PROCESSING':' ', 'STAN':' 	0'},	
+	 {'name':'124', 'age':'Carbonic  (Preparation) ', 'birthdate':' ', 'grade':' ', 'PROCESSING':' ', 'STAN':' 	0'},	
+	 {'name':'125', 'age':'Honey (Preparation) ', 'birthdate':' ', 'grade':' ', 'PROCESSING':' ', 'STAN':' 	0'},	
+	 {'name':'126', 'age':'Andrecha ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.14'},	
+	 {'name':'127', 'age':'Arsi ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'128', 'age':'Babaka ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.15'},	
+	 {'name':'129', 'age':'Babaka ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'washed ', 'STAN':' 	2.13'},	
+	 {'name':'130', 'age':'Bale ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.5'},	
+	 {'name':'131', 'age':'Bale ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.52'},	
+	 {'name':'132', 'age':'Arena ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.5'},	
+	 {'name':'133', 'age':'Arena ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.52'},	
+	 {'name':'134', 'age':'Bench Maji ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.11'},	
+	 {'name':'135', 'age':'Bench Maji ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.13'},	
+	 {'name':'136', 'age':'Djimma ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.17'},	
+	 {'name':'137', 'age':'Galana Abaya ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'washed ', 'STAN':' 	2.14'},	
+	 {'name':'138', 'age':'Gera ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.19'},	
+	 {'name':'139', 'age':'Gera ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.27'},	
+	 {'name':'140', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'141', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'142', 'age':'Harar ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.73'},	
+	 {'name':'143', 'age':'Kafa ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	1.95'},	
+	 {'name':'144', 'age':'Kafa ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	1.93'},	
+	 {'name':'145', 'age':'Kochere ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'146', 'age':'Kochere ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'147', 'age':'Limmu ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.12'},	
+	 {'name':'148', 'age':'Limmu ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.14'},	
+	 {'name':'149', 'age':'Misty Valley ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'150', 'age':'Mokasida ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.14'},	
+	 {'name':'151', 'age':'Mokasida ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.09'},	
+	 {'name':'152', 'age':'Nekemte ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.17'},	
+	 {'name':'153', 'age':'sheka ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.23'},	
+	 {'name':'154', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'155', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'156', 'age':'Teppi ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.2'},	
+	 {'name':'157', 'age':'Teppi ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.14'},	
+	 {'name':'158', 'age':'Yirgachefe ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'159', 'age':'Yirgachefe ', 'birthdate':'Commercial ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.69'},	
+	 {'name':'160', 'age':'Andrecha ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.14'},	
+	 {'name':'161', 'age':'Arsi ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'162', 'age':'Babaka ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.15'},	
+	 {'name':'163', 'age':'Babaka ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'washed ', 'STAN':' 	2.13'},	
+	 {'name':'164', 'age':'Bale ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.5'},	
+	 {'name':'165', 'age':'Bale ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.52'},	
+	 {'name':'166', 'age':'Arena ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.5'},	
+	 {'name':'167', 'age':'Arena ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.52'},	
+	 {'name':'168', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.11'},	
+	 {'name':'169', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.13'},	
+	 {'name':'170', 'age':'Djimma ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.17'},	
+	 {'name':'171', 'age':'Galana Abaya ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'washed ', 'STAN':' 	2.14'},	
+	 {'name':'172', 'age':'Gera ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.19'},	
+	 {'name':'173', 'age':'Gera ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.27'},	
+	 {'name':'174', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'175', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'176', 'age':'Harar ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.73'},	
+	 {'name':'177', 'age':'Kafa ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	1.93'},	
+	 {'name':'178', 'age':'Kafa ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	1.93'},	
+	 {'name':'179', 'age':'Kochere ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'180', 'age':'Kochere ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'181', 'age':'Limmu ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.12'},	
+	 {'name':'182', 'age':'Limmu ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.14'},	
+	 {'name':'183', 'age':'Misty Valley ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'184', 'age':'Moka sida ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.14'},	
+	 {'name':'185', 'age':'Mokasida ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.09'},	
+	 {'name':'186', 'age':'Nekemte ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.17'},	
+	 {'name':'187', 'age':'sheka ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.23'},	
+	 {'name':'188', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'189', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'190', 'age':'Teppi ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.2'},	
+	 {'name':'191', 'age':'Teppi ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.14'},	
+	 {'name':'192', 'age':'Yirgachefe ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'193', 'age':'Yirgachefe ', 'birthdate':'V/Integration ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.69'},	
+	 {'name':'194', 'age':'Andrecha ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.14'},	
+	 {'name':'195', 'age':'Bench Maji ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	1.93'},	
+	 {'name':'196', 'age':'Djimma ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.22'},	
+	 {'name':'197', 'age':'Nekemte ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.21'},	
+	 {'name':'198', 'age':'Kafa ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	1.99'},	
+	 {'name':'199', 'age':'Limmu ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.14'},	
+	 {'name':'200', 'age':'Limmu ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.22'},	
+	 {'name':'201', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.79'},	
+	 {'name':'202', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.81'},	
+	 {'name':'203', 'age':'Guji ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.79'},	
+	 {'name':'204', 'age':'Guji ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.81'},	
+	 {'name':'205', 'age':'Teppi ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.27'},	
+	 {'name':'206', 'age':'Yirgachefe ', 'birthdate':'Union ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.79'},	
+	 {'name':'207', 'age':'Andrecha ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.14'},	
+	 {'name':'208', 'age':'Babaka ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.03'},	
+	 {'name':'209', 'age':'Beha ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.63'},	
+	 {'name':'210', 'age':'Beha ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.66'},	
+	 {'name':'211', 'age':'Bale ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.5'},	
+	 {'name':'212', 'age':'Bale ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.52'},	
+	 {'name':'213', 'age':'Bench maji ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.2'},	
+	 {'name':'214', 'age':'Sheka ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'washed ', 'STAN':' 	2.2'},	
+	 {'name':'215', 'age':'Sheka ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.23'},	
+	 {'name':'216', 'age':'Djimma ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.22'},	
+	 {'name':'217', 'age':'Duyena ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.87'},	
+	 {'name':'218', 'age':'Duyena ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.64'},	
+	 {'name':'219', 'age':'Gemadro ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.03'},	
+	 {'name':'220', 'age':'Guji ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'221', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.05'},	
+	 {'name':'222', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.03'},	
+	 {'name':'223', 'age':'Kafa ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.01'},	
+	 {'name':'224', 'age':'Sidamo ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'225', 'age':'Teppi ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.19'},	
+	 {'name':'226', 'age':'Teppi ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Natural ', 'STAN':' 	2.14'},	
+	 {'name':'227', 'age':'Yirgachefe ', 'birthdate':'Grower ', 'grade':'2 ', 'PROCESSING':'Washed ', 'STAN':' 	2.66'},	
+	 {'name':'228', 'age':'Abysinia mocca ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	3.14'},	
+	 {'name':'229', 'age':'Andrecha ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.03'},	
+	 {'name':'230', 'age':'Arsi ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'231', 'age':'Bale ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'232', 'age':'Arena ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'233', 'age':'Bench Maji ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.1'},	
+	 {'name':'234', 'age':'Djimma ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.72'},	
+	 {'name':'235', 'age':'Galana Abaya ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.87'},	
+	 {'name':'236', 'age':'Gesha ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'237', 'age':'Godere ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.84'},	
+	 {'name':'238', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.63'},	
+	 {'name':'239', 'age':'Harar ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.7'},	
+	 {'name':'240', 'age':'Kafa ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.03'},	
+	 {'name':'241', 'age':'Kambata ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.55'},	
+	 {'name':'242', 'age':'Kochere ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'243', 'age':'Limmu ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.75'},	
+	 {'name':'244', 'age':'Moka forest ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.55'},	
+	 {'name':'245', 'age':'Nekemte ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.55'},	
+	 {'name':'246', 'age':'Sheka ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.84'},	
+	 {'name':'247', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.63'},	
+	 {'name':'248', 'age':'Teppi ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.1'},	
+	 {'name':'249', 'age':'Yirgachefe ', 'birthdate':'Commercial ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'250', 'age':'Abysinia mocca ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	3.14'},	
+	 {'name':'251', 'age':'Andrecha ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.07'},	
+	 {'name':'252', 'age':'Arsi ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'253', 'age':'Bale ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'254', 'age':'Arena ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.68'},	
+	 {'name':'255', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.1'},	
+	 {'name':'256', 'age':'Djimma ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.72'},	
+	 {'name':'257', 'age':'Galana Abaya ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.87'},	
+	 {'name':'258', 'age':'Gesha ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'259', 'age':'Godere ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.84'},	
+	 {'name':'260', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'261', 'age':'Harar ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.75'},	
+	 {'name':'262', 'age':'Kafa ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.07'},	
+	 {'name':'263', 'age':'Kambata ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.55'},	
+	 {'name':'264', 'age':'Kochere ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.67'},	
+	 {'name':'265', 'age':'Limmu ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.75'},	
+	 {'name':'266', 'age':'Moka forest ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.6'},	
+	 {'name':'267', 'age':'Nekemte ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.1'},	
+	 {'name':'268', 'age':'Sheka ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.84'},	
+	 {'name':'269', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'270', 'age':'Teppi ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.1'},	
+	 {'name':'271', 'age':'Yirgachefe ', 'birthdate':'V/Integration ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'272', 'age':'Bench Maji ', 'birthdate':'Union ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.11'},	
+	 {'name':'273', 'age':'Djimma ', 'birthdate':'Union ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.8'},	
+	 {'name':'274', 'age':'Guji ', 'birthdate':'Union ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'275', 'age':'Nekemte ', 'birthdate':'Union ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.1'},	
+	 {'name':'276', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'277', 'age':'Wolayita ', 'birthdate':'Union ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.2'},	
+	 {'name':'278', 'age':'Yirgachefe ', 'birthdate':'Union ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'279', 'age':'Abysinia mocca ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	3.14'},	
+	 {'name':'280', 'age':'Ayehu ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.25'},	
+	 {'name':'281', 'age':'Babaka ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.11'},	
+	 {'name':'282', 'age':'Djimma ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	1.8'},	
+	 {'name':'283', 'age':'Gedu ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.25'},	
+	 {'name':'284', 'age':'Guji ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'285', 'age':'kafa ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.03'},	
+	 {'name':'286', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'287', 'age':'Sidamo ', 'birthdate':'Grower ', 'grade':'3 ', 'PROCESSING':'Natural ', 'STAN':' 	2.62'},	
+	 {'name':'288', 'age':'Andrecha ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.58'},	
+	 {'name':'289', 'age':'Bale ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.77'},	
+	 {'name':'290', 'age':'Arena ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.77'},	
+	 {'name':'291', 'age':'Bench Maji ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'292', 'age':'Djimma ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.59'},	
+	 {'name':'293', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.92'},	
+	 {'name':'294', 'age':'Harar ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2.39'},	
+	 {'name':'295', 'age':'Kafa ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.58'},	
+	 {'name':'296', 'age':'Kochere ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2.01'},	
+	 {'name':'297', 'age':'Limmu ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.59'},	
+	 {'name':'298', 'age':'Moka boji ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'299', 'age':'Mokamba ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'300', 'age':'Moka sida ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'301', 'age':'Nekemte ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'302', 'age':'Sheka ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'303', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.84'},	
+	 {'name':'304', 'age':'Teppi ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'305', 'age':'Yirgachefe ', 'birthdate':'Commercial ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.91'},	
+	 {'name':'306', 'age':'Andrecha ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.58'},	
+	 {'name':'307', 'age':'Bale ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.77'},	
+	 {'name':'308', 'age':'Arena ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.77'},	
+	 {'name':'309', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'310', 'age':'Djimma ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'311', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.92'},	
+	 {'name':'312', 'age':'Harar ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2.39'},	
+	 {'name':'313', 'age':'Kafa ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.58'},	
+	 {'name':'314', 'age':'Kochere ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2.01'},	
+	 {'name':'315', 'age':'Limmu ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.6'},	
+	 {'name':'316', 'age':'Moka boji ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'317', 'age':'Mokamba ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'318', 'age':'Moka sida ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'319', 'age':'Nekemte ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'320', 'age':'Sheka ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'321', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.84'},	
+	 {'name':'322', 'age':'Teppi ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'323', 'age':'Yirgachefe ', 'birthdate':'V/Integration ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.91'},	
+	 {'name':'324', 'age':'Bench Maji ', 'birthdate':'Union ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2'},	
+	 {'name':'325', 'age':'Djimma ', 'birthdate':'Union ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'326', 'age':'Harar ', 'birthdate':'Union ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	2.67'},	
+	 {'name':'327', 'age':'Limmu ', 'birthdate':'Union ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'328', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.82'},	
+	 {'name':'329', 'age':'Andrecha ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'330', 'age':'Djimma ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'331', 'age':'Guji ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.91'},	
+	 {'name':'332', 'age':'kafa ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.61'},	
+	 {'name':'333', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'334', 'age':'Nekemte ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'335', 'age':'Sidamo ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.82'},	
+	 {'name':'336', 'age':'Yirgachefe ', 'birthdate':'Grower ', 'grade':'4 ', 'PROCESSING':'Natural ', 'STAN':' 	1.91'},	
+	 {'name':'337', 'age':'Bench Maji ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'338', 'age':'Djimma ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.56'},	
+	 {'name':'339', 'age':'Godere ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.56'},	
+	 {'name':'340', 'age':'Harar ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	2.09'},	
+	 {'name':'341', 'age':'Kafa ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'342', 'age':'Limu ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.56'},	
+	 {'name':'343', 'age':'Moka sida ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.59'},	
+	 {'name':'344', 'age':'Nekemte ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.57'},	
+	 {'name':'345', 'age':'Sheka ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'346', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.65'},	
+	 {'name':'347', 'age':'Teppi ', 'birthdate':'Commercial ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'348', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'349', 'age':'Djimma ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.56'},	
+	 {'name':'350', 'age':'Godere ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.56'},	
+	 {'name':'351', 'age':'Harar ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	2.09'},	
+	 {'name':'352', 'age':'Kafa ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'353', 'age':'Limu ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.56'},	
+	 {'name':'354', 'age':'Moka sida ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.59'},	
+	 {'name':'355', 'age':'Nekemte ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.57'},	
+	 {'name':'356', 'age':'Sheka ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'357', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.65'},	
+	 {'name':'358', 'age':'Teppi ', 'birthdate':'V/Integration ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'359', 'age':'Nekemte ', 'birthdate':'Union ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.59'},	
+	 {'name':'360', 'age':'Kafa forest ', 'birthdate':'Union ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'361', 'age':'Djimma ', 'birthdate':'Union ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.57'},	
+	 {'name':'362', 'age':'Nekemte ', 'birthdate':'Union ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.59'},	
+	 {'name':'363', 'age':'Sheka ', 'birthdate':'Union ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'364', 'age':'Andracha ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.57'},	
+	 {'name':'365', 'age':'Djimma ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.57'},	
+	 {'name':'366', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.57'},	
+	 {'name':'367', 'age':'Sheka ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.55'},	
+	 {'name':'368', 'age':'Duyena ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'369', 'age':'Ayehu ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'370', 'age':'Beha ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'371', 'age':'Bebeka ', 'birthdate':'Grower ', 'grade':'5 ', 'PROCESSING':'Natural ', 'STAN':' 	1.62'},	
+	 {'name':'372', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'373', 'age':'Djimma ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'374', 'age':'Godere ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'375', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.38'},	
+	 {'name':'376', 'age':'Harar ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.35'},	
+	 {'name':'377', 'age':'Limu ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'378', 'age':'Nekemte ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.38'},	
+	 {'name':'379', 'age':'Sheka ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'380', 'age':'Sidamo ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'381', 'age':'Yirgachefe ', 'birthdate':'Commercial ', 'grade':'UG ', 'PROCESSING':'Washed ', 'STAN':' 	1.38'},	
+	 {'name':'382', 'age':'Guji ', 'birthdate':'Commercial ', 'grade':'Peaber ', 'PROCESSING':'Washed ', 'STAN':' 	1.66'},	
+	 {'name':'383', 'age':'Bench Maji ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'384', 'age':'Djimma ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'385', 'age':'Godere ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'386', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.38'},	
+	 {'name':'387', 'age':'Harar ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.35'},	
+	 {'name':'388', 'age':'Limu ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'389', 'age':'Nekemte ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'390', 'age':'Sheka ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'391', 'age':'Sidamo ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'392', 'age':'Yirgachefe ', 'birthdate':'V/Integration ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.39'},	
+	 {'name':'393', 'age':'Guji ', 'birthdate':'V/Integration ', 'grade':'Peaber ', 'PROCESSING':'Washed ', 'STAN':' 	1.66'},	
+	 {'name':'394', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'UG ', 'PROCESSING':'Washed ', 'STAN':' 	1.38'},	
+	 {'name':'395', 'age':'Sidamo ', 'birthdate':'Union ', 'grade':'Peaber ', 'PROCESSING':'washed ', 'STAN':' 	1.38'},	
+	 {'name':'396', 'age':'Yirgachefe ', 'birthdate':'Union ', 'grade':'UG ', 'PROCESSING':'Washed ', 'STAN':' 	1.42'},	
+	 {'name':'397', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'UG ', 'PROCESSING':'Washed ', 'STAN':' 	1.36'},	
+	 {'name':'398', 'age':'Limmu ', 'birthdate':'Grower ', 'grade':'UG ', 'PROCESSING':'Unwashed ', 'STAN':' 	1.36'},	
+	 {'name':'399', 'age':'Babaka ', 'birthdate':'Grower ', 'grade':'UG ', 'PROCESSING':'Washed ', 'STAN':' 	1.36'},	
+	 {'name':'400', 'age':'Sidamo ', 'birthdate':'Grower ', 'grade':'UG ', 'PROCESSING':'Natural ', 'STAN':' 	1.36'},	
+	 {'name':'401', 'age':'Sidamo ', 'birthdate':'Grower ', 'grade':'UG ', 'PROCESSING':'Washed ', 'STAN':' 	1.38'},	
+	 {'name':'402', 'age':'Roasted Coffee ', 'birthdate':' ', 'grade':'1 ', 'PROCESSING':' ', 'STAN':' 	5.04'},	
+	 {'name':'403', 'age':'Roasted Coffee ', 'birthdate':' ', 'grade':'2 ', 'PROCESSING':' ', 'STAN':' 	4.02'},	
+	 {'name':'404', 'age':'Roasted Coffee ', 'birthdate':' ', 'grade':'3 ', 'PROCESSING':' ', 'STAN':' 	3.92'},	
+	 {'name':'405', 'age':'Roasted Coffee ', 'birthdate':' ', 'grade':'4 ', 'PROCESSING':' ', 'STAN':' 	3.54'},	
+
+		
+	]
+	$('th').on('click', function(){
+	var column = $(this).data('column')
+	var order = $(this).data('order')
+    var text = $(this).html()
+	
+	
+	if(order == 'desc'){
+	$(this).data('order', "asc")
+	myArray = myArray.sort((a,b)=> a[column] > b[column] ? 1 : -1)
+	}
+	else
+	{
+	$(this).data('order', "desc")
+	myArray = myArray.sort((a,b) => a[column] < b[column] ? 1 : -1)
+	
+	}
+	
+     buildTable(myArray)
+	})
+	
+	buildTable(myArray)
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+         table.innerHTML = ''
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].name}</td>
+							<td>${data[i].age}</td>
+							<td>${data[i].birthdate}</td>
+							<td>${data[i].grade}</td>
+							<td>${data[i].PROCESSING}</td>
+							<td>${data[i].STAN}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
+ 
