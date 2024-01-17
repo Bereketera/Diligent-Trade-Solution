@@ -243,6 +243,27 @@ text-decoration: none;
   color:#52413c ;
  
 }
+.applink{
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  z-index: 2;
+}
+.applink a button{
+  font-family: poppins;
+  border-radius: 20px;
+  background-color: #52413c;
+  color:#fdf4ec;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 50px;
+  stroke: none;
+  border: none;
+}
+.applink:hover a button{
+  color: #52413c;
+  background-color: #fae9d9;
+}
 
 .wrapper img{
 
@@ -2036,7 +2057,6 @@ margin-top: 100px;
 }
 
 }
-
 
 
 
