@@ -1,1 +1,385 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+
+    th{ 
+	 background-color:#29140f;
+        color:#fff;
+            }
+	#titl{
+	
+	background-color:#fff;
+	color:black;
+	padding-top:20px;
+	padding-bottom:-40px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:40px;
+	text-align: center;
+	
+	
+	
+	
+	}
+	#t{
+	background-color:fff;
+	padding-bottom:-50px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:17px;
+	text-align: center;
+	color:#29140f;	   
+</style>
+<div id="titl">
+
+<p style="font-size:25px;">28/05/2024 - 03/06/2024</p>
+ </P></div>
+
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th  >S.n </th>
+        <th  >Coffee type </th>
+		<th >Export type </th>
+        <th >Grade </th>
+		<th >Processing type </th>
+		<th data-column="STAN" data-order="desc">Stan.price USD/LB &#9650 &#9660</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+	var myArray = [
+
+	{'name':'1', 'age':'Washed Yirgachefe  ', 'birthdate':'WYCQ1 ', 'grade':'Dilla ', 'PROCESSING':'3754.15402791781 ', 'STAN':'	4171.29'},
+	{'name':'2', 'age':'Washed Yirgachefe  ', 'birthdate':'WYCQ2 ', 'grade':'Dilla ', 'PROCESSING':'3577.93747524907 ', 'STAN':'	3975.49'},
+	{'name':'3', 'age':'Under Screen Washed Yirgachefe  ', 'birthdate':'USWYCQ1 ', 'grade':'Dilla ', 'PROCESSING':'3534.55206118492 ', 'STAN':'	3927.29'},
+	{'name':'4', 'age':'Washed Yirgachefe  ', 'birthdate':'WYC3 ', 'grade':'Dilla ', 'PROCESSING':'3516.62454921093 ', 'STAN':'	3907.37'},
+	{'name':'5', 'age':'Washed Yirgachefe  ', 'birthdate':'WYC4 ', 'grade':'Dilla ', 'PROCESSING':'3198.95295488293 ', 'STAN':'	3554.4'},
+	{'name':'6', 'age':'Washed Yirgachefe  ', 'birthdate':'WYC5 ', 'grade':'Dilla ', 'PROCESSING':'3013.38740873212 ', 'STAN':'	3348.21'},
+	{'name':'7', 'age':'Washed Yirgachefe  ', 'birthdate':'WYCAUGnp ', 'grade':'Dilla ', 'PROCESSING':'2807.2133697989 ', 'STAN':'	3119.13'},
+	{'name':'8', 'age':'Washed Yirgachefe  ', 'birthdate':'WYCAUGp ', 'grade':'Dilla ', 'PROCESSING':'2772.31641603356 ', 'STAN':'	3080.36'},
+	{'name':'9', 'age':'Washed Guji ', 'birthdate':'WGJQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3754.15402791781 ', 'STAN':'	4171.29'},
+	{'name':'10', 'age':'Semi washed Guji ', 'birthdate':'SWGJQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3647.43970743782 ', 'STAN':'	4052.72'},
+	{'name':'11', 'age':'Washed Guji ', 'birthdate':'WGJQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3615.89733162908 ', 'STAN':'	4017.67'},
+	{'name':'12', 'age':'Washed Guji ', 'birthdate':'WGJ3 ', 'grade':'Hawassa ', 'PROCESSING':'3594.89977549594 ', 'STAN':'	3994.34'},
+	{'name':'13', 'age':'Washed Guji ', 'birthdate':'WGJ4 ', 'grade':'Hawassa ', 'PROCESSING':'3297.38504585313 ', 'STAN':'	3663.77'},
+	{'name':'14', 'age':'Washed Guji ', 'birthdate':'WGJ5 ', 'grade':'Hawassa ', 'PROCESSING':'2915.48825649223 ', 'STAN':'	3239.44'},
+	{'name':'15', 'age':'Washed Guji ', 'birthdate':'WGJUGnp ', 'grade':'Hawassa ', 'PROCESSING':'2605.39181373563 ', 'STAN':'	2894.88'},
+	{'name':'16', 'age':'Washed Guji ', 'birthdate':'WGJUGp ', 'grade':'Hawassa ', 'PROCESSING':'2582.67037349957 ', 'STAN':'	2869.64'},
+	{'name':'17', 'age':'Washed Sidama  ', 'birthdate':'WSDQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3754.15402791781 ', 'STAN':'	4171.29'},
+	{'name':'18', 'age':'Washed Sidama  ', 'birthdate':'WSDQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3610.65586383312 ', 'STAN':'	4011.84'},
+	{'name':'19', 'age':'Washed Sidama  ', 'birthdate':'WSD3 ', 'grade':'Hawassa ', 'PROCESSING':'3411.31380451319 ', 'STAN':'	3790.35'},
+	{'name':'20', 'age':'Washed Sidama  ', 'birthdate':'WSD4 ', 'grade':'Hawassa ', 'PROCESSING':'3082.79841433122 ', 'STAN':'	3425.34'},
+	{'name':'21', 'age':'Washed Sidama  ', 'birthdate':'WSD5 ', 'grade':'Hawassa ', 'PROCESSING':'2819.46460090286 ', 'STAN':'	3132.74'},
+	{'name':'22', 'age':'Washed Sidama  ', 'birthdate':'WSDAUGnp ', 'grade':'Hawassa ', 'PROCESSING':'2706.02231447545 ', 'STAN':'	3006.7'},
+	{'name':'23', 'age':'Washed Sidama  ', 'birthdate':'WSDAUGp ', 'grade':'Hawassa ', 'PROCESSING':'2629.21382083314 ', 'STAN':'	2921.35'},
+	{'name':'24', 'age':'Washed Welayita ', 'birthdate':'Q1 ', 'grade':'Welayita ', 'PROCESSING':'3754.15402791781 ', 'STAN':'	4171.29'},
+	{'name':'25', 'age':'Washed Welayita ', 'birthdate':'Q2 ', 'grade':'Welayita ', 'PROCESSING':'3610.65586383312 ', 'STAN':'	4011.84'},
+	{'name':'26', 'age':'Washed Welayita ', 'birthdate':'G3 ', 'grade':'Welayita ', 'PROCESSING':'3411.31380451319 ', 'STAN':'	3790.35'},
+	{'name':'27', 'age':'Washed Welayita ', 'birthdate':'G4 ', 'grade':'Welayita ', 'PROCESSING':'3082.79841433122 ', 'STAN':'	3425.34'},
+	{'name':'28', 'age':'Washed Welayita ', 'birthdate':'G5 ', 'grade':'Welayita ', 'PROCESSING':'2819.46460090286 ', 'STAN':'	3132.74'},
+	{'name':'29', 'age':'Washed Welayita ', 'birthdate':'Ugnp ', 'grade':'Welayita ', 'PROCESSING':'2706.02231447545 ', 'STAN':'	3006.7'},
+	{'name':'30', 'age':'Washed Welayita ', 'birthdate':'Ugp ', 'grade':'Welayita ', 'PROCESSING':'2629.21382083314 ', 'STAN':'	2921.35'},
+	{'name':'31', 'age':'Washed Amaro ', 'birthdate':'WAMQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3754.15402791781 ', 'STAN':'	4171.29'},
+	{'name':'32', 'age':'Washed Amaro ', 'birthdate':'WAMQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3473.29781918045 ', 'STAN':'	3859.22'},
+	{'name':'33', 'age':'Washed Amaro ', 'birthdate':'WAM3 ', 'grade':'Hawassa ', 'PROCESSING':'3176.87148920287 ', 'STAN':'	3529.86'},
+	{'name':'34', 'age':'Washed Amaro ', 'birthdate':'WAM4 ', 'grade':'Hawassa ', 'PROCESSING':'3003.11144538637 ', 'STAN':'	3336.8'},
+	{'name':'35', 'age':'Washed Amaro ', 'birthdate':'WAM5 ', 'grade':'Hawassa ', 'PROCESSING':'2960.83179399778 ', 'STAN':'	3289.82'},
+	{'name':'36', 'age':'Washed Amaro ', 'birthdate':'WAMUGnp ', 'grade':'Hawassa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'37', 'age':'Washed Amaro ', 'birthdate':'WAMUGp ', 'grade':'Hawassa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'38', 'age':'Washed West Arsi ', 'birthdate':'WWARQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3754.15402791781 ', 'STAN':'	4171.29'},
+	{'name':'39', 'age':'Washed West Arsi ', 'birthdate':'WWARQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3645.95861066997 ', 'STAN':'	4051.07'},
+	{'name':'40', 'age':'Washed West Arsi ', 'birthdate':'WWAR3 ', 'grade':'Hawassa ', 'PROCESSING':'3571.10910920835 ', 'STAN':'	3967.9'},
+	{'name':'41', 'age':'Washed West Arsi ', 'birthdate':'WWAR4 ', 'grade':'Hawassa ', 'PROCESSING':'3446.23010280052 ', 'STAN':'	3829.15'},
+	{'name':'42', 'age':'Washed West Arsi ', 'birthdate':'WWAR5 ', 'grade':'Hawassa ', 'PROCESSING':'3273.91859766049 ', 'STAN':'	3637.69'},
+	{'name':'43', 'age':'Washed West Arsi ', 'birthdate':'WWARUGnp ', 'grade':'Hawassa ', 'PROCESSING':'2843.16076923558 ', 'STAN':'	3159.07'},
+	{'name':'44', 'age':'Washed West Arsi ', 'birthdate':'WWARUGp ', 'grade':'Hawassa ', 'PROCESSING':'2805.04469004871 ', 'STAN':'	3116.72'},
+	{'name':'45', 'age':'Washed Limmu ', 'birthdate':'WLMQ1 ', 'grade':'Jimma ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'46', 'age':'Washed Limmu ', 'birthdate':'WLMQ2 ', 'grade':'Jimma ', 'PROCESSING':'3450.72125102076 ', 'STAN':'	3834.14'},
+	{'name':'47', 'age':'Washed Limmu ', 'birthdate':'WLM3 ', 'grade':'Jimma ', 'PROCESSING':'3372.40895623923 ', 'STAN':'	3747.13'},
+	{'name':'48', 'age':'Washed Limmu ', 'birthdate':'WLM4 ', 'grade':'Jimma ', 'PROCESSING':'3003.055471714 ', 'STAN':'	3336.73'},
+	{'name':'49', 'age':'Washed Limmu ', 'birthdate':'WLM5 ', 'grade':'Jimma ', 'PROCESSING':'2852.9026981283 ', 'STAN':'	3169.9'},
+	{'name':'50', 'age':'Washed Limmu ', 'birthdate':'WLMUGnp ', 'grade':'Jimma ', 'PROCESSING':'2516.66391368903 ', 'STAN':'	2796.3'},
+	{'name':'51', 'age':'Washed Limmu ', 'birthdate':'WLMUGp ', 'grade':'Jimma ', 'PROCESSING':'2479.78769552133 ', 'STAN':'	2755.32'},
+	{'name':'52', 'age':'Washed Illu Ababour ', 'birthdate':'WIBQ1 ', 'grade':'Metu ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'53', 'age':'Washed Illu Ababour ', 'birthdate':'WIBQ2 ', 'grade':'Metu ', 'PROCESSING':'3431.99277747384 ', 'STAN':'	3813.33'},
+	{'name':'54', 'age':'Washed Illu Ababour ', 'birthdate':'WIB3 ', 'grade':'Metu ', 'PROCESSING':'3372.40895623923 ', 'STAN':'	3747.13'},
+	{'name':'55', 'age':'Washed Illu Ababour ', 'birthdate':'WIB4 ', 'grade':'Metu ', 'PROCESSING':'3003.055471714 ', 'STAN':'	3336.73'},
+	{'name':'56', 'age':'Washed Illu Ababour ', 'birthdate':'WIB5 ', 'grade':'Metu ', 'PROCESSING':'2823.1042894485 ', 'STAN':'	3136.79'},
+	{'name':'57', 'age':'Washed Illu Ababour ', 'birthdate':'WIBUGnp ', 'grade':'Metu ', 'PROCESSING':'2335.98557400269 ', 'STAN':'	2595.54'},
+	{'name':'58', 'age':'Washed Illu Ababour ', 'birthdate':'WIBUGp ', 'grade':'Metu ', 'PROCESSING':'2176.20543898199 ', 'STAN':'	2418.01'},
+	{'name':'59', 'age':'Washed Bale ', 'birthdate':'WBLQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3754.15402791781 ', 'STAN':'	4171.29'},
+	{'name':'60', 'age':'Washed Bale ', 'birthdate':'WBLQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3550.86020681613 ', 'STAN':'	3945.41'},
+	{'name':'61', 'age':'Washed Bale ', 'birthdate':'WBL3 ', 'grade':'Hawassa ', 'PROCESSING':'3485.41967415847 ', 'STAN':'	3872.69'},
+	{'name':'62', 'age':'Washed Bale ', 'birthdate':'WBL4 ', 'grade':'Hawassa ', 'PROCESSING':'3373.31719647533 ', 'STAN':'	3748.14'},
+	{'name':'63', 'age':'Washed Bale ', 'birthdate':'WBL5 ', 'grade':'Hawassa ', 'PROCESSING':'2932.24829274829 ', 'STAN':'	3258.06'},
+	{'name':'64', 'age':'Washed Bale ', 'birthdate':'WBLUGnp ', 'grade':'Hawassa ', 'PROCESSING':'2477.83843575838 ', 'STAN':'	2753.16'},
+	{'name':'65', 'age':'Washed Bale ', 'birthdate':'WBLUGp ', 'grade':'Hawassa ', 'PROCESSING':'2425.74491524121 ', 'STAN':'	2695.28'},
+	{'name':'66', 'age':'Washed Kaffa ', 'birthdate':'WKFQ1 ', 'grade':'Bonga ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'67', 'age':'Washed Kaffa ', 'birthdate':'WKFQ2 ', 'grade':'Bonga ', 'PROCESSING':'3244.68478252414 ', 'STAN':'	3605.21'},
+	{'name':'68', 'age':'Washed Kaffa ', 'birthdate':'WKF3 ', 'grade':'Bonga ', 'PROCESSING':'2970.52127327452 ', 'STAN':'	3300.58'},
+	{'name':'69', 'age':'Washed Kaffa ', 'birthdate':'WKF4 ', 'grade':'Bonga ', 'PROCESSING':'2807.94183017001 ', 'STAN':'	3119.94'},
+	{'name':'70', 'age':'Washed Kaffa ', 'birthdate':'WKF5 ', 'grade':'Bonga ', 'PROCESSING':'2644.35023498704 ', 'STAN':'	2938.17'},
+	{'name':'71', 'age':'Washed Kaffa ', 'birthdate':'WKFUGnp ', 'grade':'Bonga ', 'PROCESSING':'2382.29750899733 ', 'STAN':'	2647'},
+	{'name':'72', 'age':'Washed Kaffa ', 'birthdate':'WKFUGp ', 'grade':'Bonga ', 'PROCESSING':'2328.45059566805 ', 'STAN':'	2587.17'},
+	{'name':'73', 'age':'Washed Godere ', 'birthdate':'WGDQ1 ', 'grade':'Bonga ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'74', 'age':'Washed Godere ', 'birthdate':'WGDQ2 ', 'grade':'Bonga ', 'PROCESSING':'3241.39808196232 ', 'STAN':'	3601.56'},
+	{'name':'75', 'age':'Washed Godere ', 'birthdate':'WGD3 ', 'grade':'Bonga ', 'PROCESSING':'3217.56772784759 ', 'STAN':'	3575.08'},
+	{'name':'76', 'age':'Washed Godere ', 'birthdate':'WGD4 ', 'grade':'Bonga ', 'PROCESSING':'3001.92647844513 ', 'STAN':'	3335.48'},
+	{'name':'77', 'age':'Washed Godere ', 'birthdate':'WGD5 ', 'grade':'Bonga ', 'PROCESSING':'2761.77236016952 ', 'STAN':'	3068.64'},
+	{'name':'78', 'age':'Washed Godere ', 'birthdate':'WGDUGnp ', 'grade':'Bonga ', 'PROCESSING':'2699.03209677002 ', 'STAN':'	2998.93'},
+	{'name':'79', 'age':'Washed Godere ', 'birthdate':'WGDUGp ', 'grade':'Bonga ', 'PROCESSING':'2431.56044754056 ', 'STAN':'	2701.74'},
+	{'name':'80', 'age':'Washed Yeki ', 'birthdate':'WYKQ1 ', 'grade':'Bonga ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'81', 'age':'Washed Yeki ', 'birthdate':'WYKQ2 ', 'grade':'Bonga ', 'PROCESSING':'3272.46461799096 ', 'STAN':'	3636.08'},
+	{'name':'82', 'age':'Washed Anderacha ', 'birthdate':'WANQ1 ', 'grade':'Bonga ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'83', 'age':'Washed Anderacha ', 'birthdate':'WANQ2 ', 'grade':'Bonga ', 'PROCESSING':'3244.68478252414 ', 'STAN':'	3605.21'},
+	{'name':'84', 'age':'Washed Bench Maji ', 'birthdate':'WBMQ1 ', 'grade':'Bonga ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'85', 'age':'Washed Bench Maji ', 'birthdate':'WBMQ2 ', 'grade':'Bonga ', 'PROCESSING':'3217.37262105509 ', 'STAN':'	3574.86'},
+	{'name':'86', 'age':'Washed Bench Maji ', 'birthdate':'WBM3 ', 'grade':'Bonga ', 'PROCESSING':'3186.25775826093 ', 'STAN':'	3540.29'},
+	{'name':'87', 'age':'Washed Bench Maji ', 'birthdate':'WBM4 ', 'grade':'Bonga ', 'PROCESSING':'2943.4091536746 ', 'STAN':'	3270.46'},
+	{'name':'88', 'age':'Washed Bench Maji ', 'birthdate':'WBM5 ', 'grade':'Bonga ', 'PROCESSING':'2623.69413997643 ', 'STAN':'	2915.22'},
+	{'name':'89', 'age':'Washed Bench Maji ', 'birthdate':'WBMUGnp ', 'grade':'Bonga ', 'PROCESSING':'2562.82443592898 ', 'STAN':'	2847.59'},
+	{'name':'90', 'age':'Washed Bench Maji ', 'birthdate':'WBMUGp ', 'grade':'Bonga ', 'PROCESSING':'2308.85084317926 ', 'STAN':'	2565.39'},
+	{'name':'91', 'age':'Washed Kelem Wollega ', 'birthdate':'WKWQ1 ', 'grade':'Gimbi ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'92', 'age':'Washed Kelem Wollega ', 'birthdate':'WKWQ2 ', 'grade':'Gimbi ', 'PROCESSING':'3143.54509888231 ', 'STAN':'	3492.83'},
+	{'name':'93', 'age':'Washed Kelem Wollega ', 'birthdate':'WKW3 ', 'grade':'Gimbi ', 'PROCESSING':'3136.00952562752 ', 'STAN':'	3484.46'},
+	{'name':'94', 'age':'Washed Kelem Wollega ', 'birthdate':'WKW4 ', 'grade':'Gimbi ', 'PROCESSING':'2894.81817714206 ', 'STAN':'	3216.47'},
+	{'name':'95', 'age':'Washed Kelem Wollega ', 'birthdate':'WKW5 ', 'grade':'Gimbi ', 'PROCESSING':'2721.35286545302 ', 'STAN':'	3023.73'},
+	{'name':'96', 'age':'Washed Kelem Wollega ', 'birthdate':'WKWUGnp ', 'grade':'Gimbi ', 'PROCESSING':'2541.35107351598 ', 'STAN':'	2823.73'},
+	{'name':'97', 'age':'Washed Kelem Wollega ', 'birthdate':'WKWUGp ', 'grade':'Gimbi ', 'PROCESSING':'2479.74256264287 ', 'STAN':'	2755.27'},
+	{'name':'98', 'age':'Washed East Wollega ', 'birthdate':'WEWQ1 ', 'grade':'Gimbi ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'99', 'age':'Washed East Wollega ', 'birthdate':'WEWQ2 ', 'grade':'Gimbi ', 'PROCESSING':'3143.54509888231 ', 'STAN':'	3492.83'},
+	{'name':'100', 'age':'Washed East Wollega ', 'birthdate':'WEW3 ', 'grade':'Gimbi ', 'PROCESSING':'3136.00952562752 ', 'STAN':'	3484.46'},
+	{'name':'101', 'age':'Washed East Wollega ', 'birthdate':'WEW4 ', 'grade':'Gimbi ', 'PROCESSING':'2894.81817714206 ', 'STAN':'	3216.47'},
+	{'name':'102', 'age':'Washed East Wollega ', 'birthdate':'WEW5 ', 'grade':'Gimbi ', 'PROCESSING':'2721.35286545302 ', 'STAN':'	3023.73'},
+	{'name':'103', 'age':'Washed East Wollega ', 'birthdate':'WEWUGnp ', 'grade':'Gimbi ', 'PROCESSING':'2530.8581648713 ', 'STAN':'	2812.07'},
+	{'name':'104', 'age':'Washed East Wollega ', 'birthdate':'WEWUGp ', 'grade':'Gimbi ', 'PROCESSING':'2480.24100157388 ', 'STAN':'	2755.83'},
+	{'name':'105', 'age':'Washed Gimbi ', 'birthdate':'WGMQ1 ', 'grade':'Gimbi ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'106', 'age':'Washed Gimbi ', 'birthdate':'WGMQ2 ', 'grade':'Gimbi ', 'PROCESSING':'3143.54509888231 ', 'STAN':'	3492.83'},
+	{'name':'107', 'age':'Washed Gimbi ', 'birthdate':'WGM3 ', 'grade':'Gimbi ', 'PROCESSING':'3136.00952562752 ', 'STAN':'	3484.46'},
+	{'name':'108', 'age':'Washed Gimbi ', 'birthdate':'WGM4 ', 'grade':'Gimbi ', 'PROCESSING':'2894.81817714206 ', 'STAN':'	3216.47'},
+	{'name':'109', 'age':'Washed Gimbi ', 'birthdate':'WGM5 ', 'grade':'Gimbi ', 'PROCESSING':'2721.35286545302 ', 'STAN':'	3023.73'},
+	{'name':'110', 'age':'Washed Gimbi ', 'birthdate':'WGMUGnp ', 'grade':'Gimbi ', 'PROCESSING':'2509.90839460416 ', 'STAN':'	2788.79'},
+	{'name':'111', 'age':'Washed Gimbi ', 'birthdate':'WGMUGp ', 'grade':'Gimbi ', 'PROCESSING':'2404.90561671003 ', 'STAN':'	2672.12'},
+	{'name':'112', 'age':'Washed West Gojam ', 'birthdate':'WWGQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'113', 'age':'Washed West Gojam ', 'birthdate':'WWGQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'114', 'age':'Washed West Gojam ', 'birthdate':'WWG3 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'115', 'age':'Washed West Gojam ', 'birthdate':'WWG4 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'116', 'age':'Washed West Gojam ', 'birthdate':'WWG5 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'117', 'age':'Washed West Gojam ', 'birthdate':'WWGUGp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'118', 'age':'Washed West Gojam ', 'birthdate':'WWGUGnp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'119', 'age':'Washed Zege ', 'birthdate':'WZGQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'120', 'age':'Washed Zege ', 'birthdate':'WZGQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'121', 'age':'Washed Zege ', 'birthdate':'WZG3 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'122', 'age':'Washed Zege ', 'birthdate':'WZG4 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'123', 'age':'Washed Zege ', 'birthdate':'WZG5 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'124', 'age':'Washed Zege ', 'birthdate':'WZGUGp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'125', 'age':'Washed Zege ', 'birthdate':'WZGUGnp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'126', 'age':'Washed Awi ', 'birthdate':'WAWIQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'127', 'age':'Washed Awi ', 'birthdate':'WAWIQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'128', 'age':'Washed Awi ', 'birthdate':'WAWI3 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'129', 'age':'Washed Awi ', 'birthdate':'WAWI4 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'130', 'age':'Washed Awi ', 'birthdate':'WAWI5 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'131', 'age':'Washed Awi ', 'birthdate':'WAWIUGp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'132', 'age':'Washed Awi ', 'birthdate':'WAWIUGnp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'133', 'age':'Washed East Gojam ', 'birthdate':'WEGQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'134', 'age':'Washed East Gojam ', 'birthdate':'WEGQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'135', 'age':'Washed East Gojam ', 'birthdate':'WEG3 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'136', 'age':'Washed East Gojam ', 'birthdate':'WEG4 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'137', 'age':'Washed East Gojam ', 'birthdate':'WEG5 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'138', 'age':'Washed East Gojam ', 'birthdate':'WEGUGp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'139', 'age':'Washed East Gojam ', 'birthdate':'WEGUGnp ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'140', 'age':'Washed Shaka ', 'birthdate':'WSKQ1 ', 'grade':'Bonga ', 'PROCESSING':'3526.92891570174 ', 'STAN':'	3918.81'},
+	{'name':'141', 'age':'Washed Shaka ', 'birthdate':'WSKQ2 ', 'grade':'Bonga ', 'PROCESSING':'3244.68478252414 ', 'STAN':'	3605.21'},
+	{'name':'142', 'age':'Washed Shaka ', 'birthdate':'WSK3 ', 'grade':'Bonga ', 'PROCESSING':'2970.52127327452 ', 'STAN':'	3300.58'},
+	{'name':'143', 'age':'Washed Shaka ', 'birthdate':'WSK4 ', 'grade':'Bonga ', 'PROCESSING':'2807.94183017001 ', 'STAN':'	3119.94'},
+	{'name':'144', 'age':'Washed Shaka ', 'birthdate':'WSK5 ', 'grade':'Bonga ', 'PROCESSING':'2644.35023498704 ', 'STAN':'	2938.17'},
+	{'name':'145', 'age':'Washed Shaka ', 'birthdate':'WSKUGnp ', 'grade':'Bonga ', 'PROCESSING':'2382.29750899733 ', 'STAN':'	2647'},
+	{'name':'146', 'age':'Washed Shaka ', 'birthdate':'WSKUGp ', 'grade':'Bonga ', 'PROCESSING':'2328.45059566805 ', 'STAN':'	2587.17'},
+	{'name':'147', 'age':'Unwashed Yirgachefe  ', 'birthdate':'UYCAQ1 ', 'grade':'Dilla ', 'PROCESSING':'3822.32156158264 ', 'STAN':'	4247.03'},
+	{'name':'148', 'age':'Unwashed Yirgachefe  ', 'birthdate':'UYCAQ2 ', 'grade':'Dilla ', 'PROCESSING':'3699.96682156702 ', 'STAN':'	4111.08'},
+	{'name':'149', 'age':'Unwashed Yirgachefe  ', 'birthdate':'UYCA3 ', 'grade':'Dilla ', 'PROCESSING':'3654.27673318013 ', 'STAN':'	4060.31'},
+	{'name':'150', 'age':'Unwashed Yirgachefe  ', 'birthdate':'UYCA4 ', 'grade':'Dilla ', 'PROCESSING':'3171.7755302163 ', 'STAN':'	3524.2'},
+	{'name':'151', 'age':'Under Screen Unwashed yirgachefe  ', 'birthdate':'USUYCA5 ', 'grade':'Dilla ', 'PROCESSING':'2867.66984521453 ', 'STAN':'	3186.3'},
+	{'name':'152', 'age':'Unwashed Yirgachefe  ', 'birthdate':'UYCA5 ', 'grade':'Dilla ', 'PROCESSING':'2844.12420661558 ', 'STAN':'	3160.14'},
+	{'name':'153', 'age':'Unwashed Yirgachefe  ', 'birthdate':'UYCAUG ', 'grade':'Dilla ', 'PROCESSING':'2683.96821342727 ', 'STAN':'	2982.19'},
+	{'name':'154', 'age':'Unwashed Guji ', 'birthdate':'UGJQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3822.32156158264 ', 'STAN':'	4247.03'},
+	{'name':'155', 'age':'Unwashed Guji ', 'birthdate':'UGJQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3668.18189578736 ', 'STAN':'	4075.76'},
+	{'name':'156', 'age':'Under screen unwashed Guji ', 'birthdate':'USUGJQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3630.81352597 ', 'STAN':'	4034.24'},
+	{'name':'157', 'age':'Under screen unwashed Guji ', 'birthdate':'USUGJQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3602.08258957209 ', 'STAN':'	4002.32'},
+	{'name':'158', 'age':'Unwashed Guji ', 'birthdate':'UGJ3 ', 'grade':'Hawassa ', 'PROCESSING':'3538.83271243193 ', 'STAN':'	3932.04'},
+	{'name':'159', 'age':'Unwashed Guji ', 'birthdate':'UGJ4 ', 'grade':'Hawassa ', 'PROCESSING':'3204.24748145507 ', 'STAN':'	3560.28'},
+	{'name':'160', 'age':'Unwashed Guji ', 'birthdate':'UGJ5 ', 'grade':'Hawassa ', 'PROCESSING':'3166.76839714968 ', 'STAN':'	3518.64'},
+	{'name':'161', 'age':'Unwashed Guji ', 'birthdate':'UGJUG ', 'grade':'Hawassa ', 'PROCESSING':'2884.78310133837 ', 'STAN':'	3205.32'},
+	{'name':'162', 'age':'Unwashed Sidama  ', 'birthdate':'USDAQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3822.32156158264 ', 'STAN':'	4247.03'},
+	{'name':'163', 'age':'Unwashed Sidama  ', 'birthdate':'USDAQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3668.18189578736 ', 'STAN':'	4075.76'},
+	{'name':'164', 'age':'Unwashed Sidama  ', 'birthdate':'USDA3 ', 'grade':'Hawassa ', 'PROCESSING':'3643.37689457197 ', 'STAN':'	4048.2'},
+	{'name':'165', 'age':'Unwashed Sidama  ', 'birthdate':'USDA4 ', 'grade':'Hawassa ', 'PROCESSING':'3204.24748145507 ', 'STAN':'	3560.28'},
+	{'name':'166', 'age':'Unwashed Sidama  ', 'birthdate':'USDA5 ', 'grade':'Hawassa ', 'PROCESSING':'3032.22698887991 ', 'STAN':'	3369.15'},
+	{'name':'167', 'age':'Unwashed Sidama  ', 'birthdate':'USDAUG ', 'grade':'Hawassa ', 'PROCESSING':'2884.78310133837 ', 'STAN':'	3205.32'},
+	{'name':'168', 'age':'Unwashed Welayita ', 'birthdate':'Q1 ', 'grade':'Welayita ', 'PROCESSING':'3822.32156158264 ', 'STAN':'	4247.03'},
+	{'name':'169', 'age':'Unwashed Welayita ', 'birthdate':'Q2 ', 'grade':'Welayita ', 'PROCESSING':'3668.18189578736 ', 'STAN':'	4075.76'},
+	{'name':'170', 'age':'Unwashed Welayita ', 'birthdate':'G3 ', 'grade':'Welayita ', 'PROCESSING':'3643.37689457197 ', 'STAN':'	4048.2'},
+	{'name':'171', 'age':'Unwashed Welayita ', 'birthdate':'G4 ', 'grade':'Welayita ', 'PROCESSING':'3204.24748145507 ', 'STAN':'	3560.28'},
+	{'name':'172', 'age':'Unwashed Welayita ', 'birthdate':'G5 ', 'grade':'Welayita ', 'PROCESSING':'3032.22698887991 ', 'STAN':'	3369.15'},
+	{'name':'173', 'age':'Unwashed Welayita ', 'birthdate':'UG ', 'grade':'Welayita ', 'PROCESSING':'2884.78310133837 ', 'STAN':'	3205.32'},
+	{'name':'174', 'age':'Unwashed Amaro ', 'birthdate':'UAMQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3822.32156158264 ', 'STAN':'	4247.03'},
+	{'name':'175', 'age':'Unwashed Amaro ', 'birthdate':'UAMQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3481.20068846903 ', 'STAN':'	3868.01'},
+	{'name':'176', 'age':'Unwashed Amaro ', 'birthdate':'UAM3 ', 'grade':'Hawassa ', 'PROCESSING':'3239.819730989 ', 'STAN':'	3599.8'},
+	{'name':'177', 'age':'Unwashed Amaro ', 'birthdate':'UAM4 ', 'grade':'Hawassa ', 'PROCESSING':'3067.98293090201 ', 'STAN':'	3408.87'},
+	{'name':'178', 'age':'Unwashed Amaro ', 'birthdate':'UAM5 ', 'grade':'Hawassa ', 'PROCESSING':'3051.42067108556 ', 'STAN':'	3390.47'},
+	{'name':'179', 'age':'Unwashed Amaro ', 'birthdate':'UAMUG ', 'grade':'Hawassa ', 'PROCESSING':'2762.17016496957 ', 'STAN':'	3069.08'},
+	{'name':'180', 'age':'Unwashed West Arsi ', 'birthdate':'UWARQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3822.32156158264 ', 'STAN':'	4247.03'},
+	{'name':'181', 'age':'Unwashed West Arsi ', 'birthdate':'UWARQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3641.99105322752 ', 'STAN':'	4046.66'},
+	{'name':'182', 'age':'Unwashed West Arsi ', 'birthdate':'UWAR3 ', 'grade':'Hawassa ', 'PROCESSING':'3494.1451567376 ', 'STAN':'	3882.39'},
+	{'name':'183', 'age':'Unwashed West Arsi ', 'birthdate':'UWAR4 ', 'grade':'Hawassa ', 'PROCESSING':'3203.18857614064 ', 'STAN':'	3559.1'},
+	{'name':'184', 'age':'Unwashed West Arsi ', 'birthdate':'UWAR5 ', 'grade':'Hawassa ', 'PROCESSING':'3050.38856367756 ', 'STAN':'	3389.33'},
+	{'name':'185', 'age':'Unwashed West Arsi ', 'birthdate':'UWARUG ', 'grade':'Hawassa ', 'PROCESSING':'2885.74855753026 ', 'STAN':'	3206.39'},
+	{'name':'186', 'age':'Unwashed Jimma ', 'birthdate':'UJMQ1 ', 'grade':'Bonga ', 'PROCESSING':'3629.67418383422 ', 'STAN':'	4032.98'},
+	{'name':'187', 'age':'Unwashed Jimma ', 'birthdate':'UJMQ2 ', 'grade':'Bonga ', 'PROCESSING':'3337.68536245445 ', 'STAN':'	3708.54'},
+	{'name':'188', 'age':'Unwashed Jimma ', 'birthdate':'UJM3 ', 'grade':'Jimma ', 'PROCESSING':'3200.90767187857 ', 'STAN':'	3556.57'},
+	{'name':'189', 'age':'Unwashed Jimma ', 'birthdate':'UJM4 ', 'grade':'Jimma ', 'PROCESSING':'2983.72307675732 ', 'STAN':'	3315.25'},
+	{'name':'190', 'age':'Unwashed Jimma ', 'birthdate':'UJM5 ', 'grade':'Jimma ', 'PROCESSING':'2781.54421736465 ', 'STAN':'	3090.61'},
+	{'name':'191', 'age':'Unwashed Jimma ', 'birthdate':'UJMUG ', 'grade':'Jimma ', 'PROCESSING':'2594.1807875824 ', 'STAN':'	2882.43'},
+	{'name':'192', 'age':'Unwashed Illu Ababour ', 'birthdate':'UIBQ1 ', 'grade':'Metu ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'193', 'age':'Unwashed Illu Ababour ', 'birthdate':'UIBQ2 ', 'grade':'Metu ', 'PROCESSING':'3076.99340992661 ', 'STAN':'	3418.89'},
+	{'name':'194', 'age':'Unwashed Illu Ababour ', 'birthdate':'UIB3 ', 'grade':'Metu ', 'PROCESSING':'3059.5274655841 ', 'STAN':'	3399.48'},
+	{'name':'195', 'age':'Unwashed Illu Ababour ', 'birthdate':'UIB4 ', 'grade':'Metu ', 'PROCESSING':'2882.4864066576 ', 'STAN':'	3202.77'},
+	{'name':'196', 'age':'Unwashed Illu Ababour ', 'birthdate':'UIB5 ', 'grade':'Metu ', 'PROCESSING':'2694.39097284341 ', 'STAN':'	2993.77'},
+	{'name':'197', 'age':'Unwashed Illu Ababour ', 'birthdate':'UIBUG ', 'grade':'Metu ', 'PROCESSING':'2513.08246746445 ', 'STAN':'	2792.32'},
+	{'name':'198', 'age':'Unwashed Harar  ', 'birthdate':'UHRAQ1 ', 'grade':'Dire Dawa ', 'PROCESSING':'4208.60425234997 ', 'STAN':'	4676.23'},
+	{'name':'199', 'age':'Unwashed Harar  ', 'birthdate':'UHRAQ2 ', 'grade':'Dire Dawa ', 'PROCESSING':'4080.81289246816 ', 'STAN':'	4534.24'},
+	{'name':'200', 'age':'Unwashed Harar  ', 'birthdate':'UHRA3 ', 'grade':'Dire Dawa ', 'PROCESSING':'3972.6077522182 ', 'STAN':'	4414.01'},
+	{'name':'201', 'age':'Unwashed Harar  ', 'birthdate':'UHRA4 ', 'grade':'Dire Dawa ', 'PROCESSING':'3968.73380422954 ', 'STAN':'	4409.71'},
+	{'name':'202', 'age':'Unwashed Harar  ', 'birthdate':'UHRA5 ', 'grade':'Dire Dawa ', 'PROCESSING':'3878.57004048308 ', 'STAN':'	4309.53'},
+	{'name':'203', 'age':'Unwashed Harar  ', 'birthdate':'UHRAUG ', 'grade':'Dire Dawa ', 'PROCESSING':'3604.0479642892 ', 'STAN':'	4004.5'},
+	{'name':'204', 'age':'Unwashed Bale ', 'birthdate':'UBLQ1 ', 'grade':'Hawassa ', 'PROCESSING':'3822.32156158264 ', 'STAN':'	4247.03'},
+	{'name':'205', 'age':'Unwashed Bale ', 'birthdate':'UBLQ2 ', 'grade':'Hawassa ', 'PROCESSING':'3598.02773234897 ', 'STAN':'	3997.81'},
+	{'name':'206', 'age':'Unwashed Bale ', 'birthdate':'UBL3 ', 'grade':'Dire Dawa ', 'PROCESSING':'3539.97706122888 ', 'STAN':'	3933.31'},
+	{'name':'207', 'age':'Unwashed Bale ', 'birthdate':'UBL4 ', 'grade':'Dire Dawa ', 'PROCESSING':'3113.04675078042 ', 'STAN':'	3458.95'},
+	{'name':'208', 'age':'Unwashed Bale ', 'birthdate':'UBL5 ', 'grade':'Dire Dawa ', 'PROCESSING':'3000.57297409486 ', 'STAN':'	3333.97'},
+	{'name':'209', 'age':'Unwashed Bale ', 'birthdate':'UBLUG ', 'grade':'Dire Dawa ', 'PROCESSING':'2677.21002008411 ', 'STAN':'	2974.68'},
+	{'name':'210', 'age':'Unwashed Kelem Wollega ', 'birthdate':'UKWQ1 ', 'grade':'Gimbi ', 'PROCESSING':'3629.67418383422 ', 'STAN':'	4032.98'},
+	{'name':'211', 'age':'Unwashed Kelem Wollega ', 'birthdate':'UKWQ2 ', 'grade':'Gimbi ', 'PROCESSING':'3349.31821803523 ', 'STAN':'	3721.47'},
+	{'name':'212', 'age':'Under Screen Unwashed Kelem Wollega ', 'birthdate':'USUKWQ2 ', 'grade':'Gimbi ', 'PROCESSING':'3272.64939008865 ', 'STAN':'	3636.28'},
+	{'name':'213', 'age':'Unwashed Kelem Wollega ', 'birthdate':'UKW3 ', 'grade':'Gimbi ', 'PROCESSING':'3200.90767187857 ', 'STAN':'	3556.57'},
+	{'name':'214', 'age':'Under screen unwashed kelem Wollega 3 ', 'birthdate':'USUKW3 ', 'grade':'Gimbi ', 'PROCESSING':'3143.25745926767 ', 'STAN':'	3492.51'},
+	{'name':'215', 'age':'Unwashed Kelem Wollega ', 'birthdate':'UKW4 ', 'grade':'Gimbi ', 'PROCESSING':'2980.58593715062 ', 'STAN':'	3311.77'},
+	{'name':'216', 'age':'Under screen Unwashed Kelem Wollega 4 ', 'birthdate':'USUKW4 ', 'grade':'Gimbi ', 'PROCESSING':'2816.70492342412 ', 'STAN':'	3129.68'},
+	{'name':'217', 'age':'Unwashed Kelem Wollega ', 'birthdate':'UKW5 ', 'grade':'Gimbi ', 'PROCESSING':'2671.30613628695 ', 'STAN':'	2968.12'},
+	{'name':'218', 'age':'Unwashed Kelem Wollega ', 'birthdate':'UKWUG ', 'grade':'Gimbi ', 'PROCESSING':'2603.8353495012 ', 'STAN':'	2893.16'},
+	{'name':'219', 'age':'Unwashed East Wollega ', 'birthdate':'UEWQ1 ', 'grade':'Gimbi ', 'PROCESSING':'3629.67418383422 ', 'STAN':'	4032.98'},
+	{'name':'220', 'age':'Unwashed East Wollega ', 'birthdate':'UEWQ2 ', 'grade':'Gimbi ', 'PROCESSING':'3345.74351156709 ', 'STAN':'	3717.5'},
+	{'name':'221', 'age':'Unwashed East Wollega ', 'birthdate':'UEW3 ', 'grade':'Gimbi ', 'PROCESSING':'3182.72930365209 ', 'STAN':'	3536.37'},
+	{'name':'222', 'age':'Unwashed East Wollega ', 'birthdate':'UEW4 ', 'grade':'Gimbi ', 'PROCESSING':'2975.72381917888 ', 'STAN':'	3306.36'},
+	{'name':'223', 'age':'Unwashed East Wollega ', 'birthdate':'UEW5 ', 'grade':'Gimbi ', 'PROCESSING':'2807.4591508429 ', 'STAN':'	3119.4'},
+	{'name':'224', 'age':'Unwashed East Wollega ', 'birthdate':'UEWUG ', 'grade':'Gimbi ', 'PROCESSING':'2594.1807875824 ', 'STAN':'	2882.43'},
+	{'name':'225', 'age':'Unwashed Gimbi ', 'birthdate':'UGMQ1 ', 'grade':'Gimbi ', 'PROCESSING':'3629.67418383422 ', 'STAN':'	4032.98'},
+	{'name':'226', 'age':'Unwashed Gimbi ', 'birthdate':'UGMQ2 ', 'grade':'Gimbi ', 'PROCESSING':'3345.74351156709 ', 'STAN':'	3717.5'},
+	{'name':'227', 'age':'Unwashed Gimbi ', 'birthdate':'UGM3 ', 'grade':'Gimbi ', 'PROCESSING':'3182.72930365209 ', 'STAN':'	3536.37'},
+	{'name':'228', 'age':'Unwashed Gimbi ', 'birthdate':'UGM4 ', 'grade':'Gimbi ', 'PROCESSING':'2975.72381917888 ', 'STAN':'	3306.36'},
+	{'name':'229', 'age':'Unwashed Gimbi ', 'birthdate':'UGM5 ', 'grade':'Gimbi ', 'PROCESSING':'2807.4591508429 ', 'STAN':'	3119.4'},
+	{'name':'230', 'age':'Unwashed Gimbi ', 'birthdate':'UGMUG ', 'grade':'Gimbi ', 'PROCESSING':'2594.1807875824 ', 'STAN':'	2882.43'},
+	{'name':'231', 'age':'Unwashed Godere ', 'birthdate':'UGDQ1 ', 'grade':'Bonga ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'232', 'age':'Unwashed Godere ', 'birthdate':'UGDQ2 ', 'grade':'Bonga ', 'PROCESSING':'3205.7381206049 ', 'STAN':'	3561.94'},
+	{'name':'233', 'age':'Unwashed Godere ', 'birthdate':'UGD3 ', 'grade':'Bonga ', 'PROCESSING':'3105.11360083439 ', 'STAN':'	3450.13'},
+	{'name':'234', 'age':'Unwashed Godere ', 'birthdate':'UGD4 ', 'grade':'Bonga ', 'PROCESSING':'3084.24562443546 ', 'STAN':'	3426.94'},
+	{'name':'235', 'age':'Unwashed Godere ', 'birthdate':'UGD5 ', 'grade':'Bonga ', 'PROCESSING':'2816.70492342412 ', 'STAN':'	3129.68'},
+	{'name':'236', 'age':'Unwashed Godere ', 'birthdate':'UGDUG ', 'grade':'Bonga ', 'PROCESSING':'2489.91151885933 ', 'STAN':'	2766.57'},
+	{'name':'237', 'age':'Unwashed Yeki ', 'birthdate':'UYKQ1 ', 'grade':'Bonga ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'238', 'age':'Unwashed Yeki ', 'birthdate':'UYKQ2 ', 'grade':'Bonga ', 'PROCESSING':'3283.27974314898 ', 'STAN':'	3648.09'},
+	{'name':'239', 'age':'Unwashed Anderacha ', 'birthdate':'UANQ1 ', 'grade':'Bonga ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'240', 'age':'Unwashed Anderacha ', 'birthdate':'UANQ2 ', 'grade':'Bonga ', 'PROCESSING':'3162.38450404658 ', 'STAN':'	3513.77'},
+	{'name':'241', 'age':'Unwashed Bench Maji ', 'birthdate':'UBMQ1 ', 'grade':'Bonga ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'242', 'age':'Unwashed Bench Maji ', 'birthdate':'UBMQ2 ', 'grade':'Bonga ', 'PROCESSING':'3322.5829162404 ', 'STAN':'	3691.76'},
+	{'name':'243', 'age':'Unwashed Bench Maji ', 'birthdate':'UBM3 ', 'grade':'Bonga ', 'PROCESSING':'3290.19705931443 ', 'STAN':'	3655.78'},
+	{'name':'244', 'age':'Unwashed Bench Maji ', 'birthdate':'UBM4 ', 'grade':'Bonga ', 'PROCESSING':'2983.42014996815 ', 'STAN':'	3314.92'},
+	{'name':'245', 'age':'Unwashed Bench Maji ', 'birthdate':'UBM5 ', 'grade':'Bonga ', 'PROCESSING':'2832.40012381768 ', 'STAN':'	3147.12'},
+	{'name':'246', 'age':'Unwashed Bench Maji ', 'birthdate':'UBMUG ', 'grade':'Bonga ', 'PROCESSING':'2694.58823153795 ', 'STAN':'	2993.99'},
+	{'name':'247', 'age':'Unwashed West Gojam ', 'birthdate':'UWGQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3469.37360191837 ', 'STAN':'	3854.86'},
+	{'name':'248', 'age':'Unwashed West Gojam ', 'birthdate':'UWGQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'3455.54108589129 ', 'STAN':'	3839.5'},
+	{'name':'249', 'age':'Unwashed West Gojam ', 'birthdate':'UWG3 ', 'grade':'Addis Ababa ', 'PROCESSING':'3322.5829162404 ', 'STAN':'	3691.76'},
+	{'name':'250', 'age':'Unwashed West Gojam ', 'birthdate':'UWG4 ', 'grade':'Addis Ababa ', 'PROCESSING':'3163.75100290825 ', 'STAN':'	3515.28'},
+	{'name':'251', 'age':'Unwashed West Gojam ', 'birthdate':'UWG5 ', 'grade':'Addis Ababa ', 'PROCESSING':'3003.60267140426 ', 'STAN':'	3337.34'},
+	{'name':'252', 'age':'Unwashed West Gojam ', 'birthdate':'UWGUG ', 'grade':'Addis Ababa ', 'PROCESSING':'2406.88228635762 ', 'STAN':'	2674.32'},
+	{'name':'253', 'age':'Unwashed Zege ', 'birthdate':'UZGQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'254', 'age':'Unwashed Zege ', 'birthdate':'UZGQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'255', 'age':'Unwashed Zege ', 'birthdate':'UZG3 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'256', 'age':'Unwashed Zege ', 'birthdate':'UZG4 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'257', 'age':'Unwashed Zege ', 'birthdate':'UZG5 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'258', 'age':'Unwashed Zege ', 'birthdate':'UZGUG ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'259', 'age':'Unwashed Awi ', 'birthdate':'UAWIQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'260', 'age':'Unwashed Awi ', 'birthdate':'UAWIQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'3427.28131933575 ', 'STAN':'	3808.1'},
+	{'name':'261', 'age':'Unwashed Awi ', 'birthdate':'UAWI3 ', 'grade':'Addis Ababa ', 'PROCESSING':'3262.17530395205 ', 'STAN':'	3624.64'},
+	{'name':'262', 'age':'Unwashed Awi ', 'birthdate':'UAWI4 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'263', 'age':'Unwashed Awi ', 'birthdate':'UAWI5 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'264', 'age':'Unwashed Awi ', 'birthdate':'UAWIUG ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'265', 'age':'Unwashed East Gojam ', 'birthdate':'UEGQ1 ', 'grade':'Addis Ababa ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'266', 'age':'Unwashed East Gojam ', 'birthdate':'UEGQ2 ', 'grade':'Addis Ababa ', 'PROCESSING':'3392.21571864859 ', 'STAN':'	3769.13'},
+	{'name':'267', 'age':'Unwashed East Gojam ', 'birthdate':'UEG3 ', 'grade':'Addis Ababa ', 'PROCESSING':'3228.79895520165 ', 'STAN':'	3587.56'},
+	{'name':'268', 'age':'Unwashed East Gojam ', 'birthdate':'UEG4 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'269', 'age':'Unwashed East Gojam ', 'birthdate':'UEG5 ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'270', 'age':'Unwashed East Gojam ', 'birthdate':'UEGUG ', 'grade':'Addis Ababa ', 'PROCESSING':'0 ', 'STAN':'	0'},
+	{'name':'271', 'age':'Unwashed Shaka ', 'birthdate':'USK3 ', 'grade':'Bonga ', 'PROCESSING':'3077.17884372387 ', 'STAN':'	3419.09'},
+	{'name':'272', 'age':'Unwashed Shaka ', 'birthdate':'USK4 ', 'grade':'Bonga ', 'PROCESSING':'2976.37470918809 ', 'STAN':'	3307.09'},
+	{'name':'273', 'age':'Unwashed Shaka ', 'birthdate':'USK5 ', 'grade':'Bonga ', 'PROCESSING':'2791.09851502936 ', 'STAN':'	3101.23'},
+	{'name':'274', 'age':'Unwashed Shaka ', 'birthdate':'USKUG ', 'grade':'Bonga ', 'PROCESSING':'2724.51737348624 ', 'STAN':'	3027.25'},
+	{'name':'275', 'age':'Unwashed Kaffa ', 'birthdate':'UKFQ1 ', 'grade':'Bonga ', 'PROCESSING':'3436.03887081531 ', 'STAN':'	3817.83'},
+	{'name':'276', 'age':'Unwashed Kaffa ', 'birthdate':'UKFQ2 ', 'grade':'Bonga ', 'PROCESSING':'3153.45176372598 ', 'STAN':'	3503.84'},
+	{'name':'277', 'age':'Unwashed Kaffa ', 'birthdate':'UKF3 ', 'grade':'Bonga ', 'PROCESSING':'3077.17884372387 ', 'STAN':'	3419.09'},
+	{'name':'278', 'age':'Unwashed Kaffa ', 'birthdate':'UKF4 ', 'grade':'Bonga ', 'PROCESSING':'2976.37470918809 ', 'STAN':'	3307.09'},
+	{'name':'279', 'age':'Unwashed Kaffa ', 'birthdate':'UKF5 ', 'grade':'Bonga ', 'PROCESSING':'2791.09851502936 ', 'STAN':'	3101.23'},
+	{'name':'280', 'age':'Unwashed Kaffa ', 'birthdate':'UKFUG ', 'grade':'Bonga ', 'PROCESSING':'2724.51737348624 ', 'STAN':'	3027.25'},
+
+
+
+		
+]
+	$('th').on('click', function(){
+	var column = $(this).data('column')
+	var order = $(this).data('order')
+    var text = $(this).html()
+	
+	
+	if(order == 'desc'){
+	$(this).data('order', "asc")
+	myArray = myArray.sort((a,b)=> a[column] > b[column] ? 1 : -1)
+	}
+	else
+	{
+	$(this).data('order', "desc")
+	myArray = myArray.sort((a,b) => a[column] < b[column] ? 1 : -1)
+	
+	}
+	
+     buildTable(myArray)
+	})
+	
+	buildTable(myArray)
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+         table.innerHTML = ''
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].name}</td>
+							<td>${data[i].age}</td>
+							<td>${data[i].birthdate}</td>
+							<td>${data[i].grade}</td>
+							<td>${data[i].PROCESSING}</td>
+							<td>${data[i].STAN}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
+ 
